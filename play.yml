@@ -1,0 +1,23 @@
+---
+- hosts: all
+  ignore_errors: yes
+  become: yes
+  tasks:
+    - name: Create user
+      user:
+        name: Modu
+        comment: Modu Pemosi
+ 
+    - name: Create directory
+      file:
+       path: /tmp/devop-ans
+       owner: Modu
+       state: directory
+       mode: "0777"
+
+    - name: Create file
+      file:
+       path: /tmp/ansible-class
+       owner: Modu
+       state: touch
+       mode: "0600"
